@@ -1,6 +1,40 @@
 @charset "utf-8";
 /*! grid-system.css © yamoo9.net, 2017 */
 
+.grid-toggle-btn {
+  cursor: pointer;
+  position: fixed;
+  z-index: 10000;
+  top: 10px;
+  right: 10px;
+  border: none;
+  padding: 1em 2em;
+  background: #000;
+  color: #fff;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+.grid-toggle-btn:hover,
+.grid-toggle-btn:focus {
+  background: #fe4940;
+}
+
+.show-grid {
+  position: relative;
+}
+
+.show-grid::before {
+  content: '';
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200vh;
+  background: linear-gradient(transparent 23px, hsla(23, 40%, 73%, 0.78) 23px);
+  background-size: 1px 24px;
+}
+
 /**
  * --------------------------------
  * container module
@@ -9,6 +43,28 @@
   width: 960px;
   margin-left: auto;
   margin-right: auto;
+}
+.show-grid .container {
+  position: relative;
+}
+.show-grid .container::before {
+  content: '';
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200vh;
+  /* 실제 이미지 사용 방법 */
+  /* background: url("../images/960__10-60-10.png"); */
+  /* CSS 배경 이미지 기술 활용: 선형 그레디언트(linear-gradient) */
+  background: linear-gradient(
+    90deg,
+    transparent 10px,
+    hsla(32, 90%, 92%, 0.55) 10px, hsla(32, 90%, 92%, 0.55) 70px,
+    transparent 70px
+  );
+  background-size: 80px 1px;
 }
 
 /**
